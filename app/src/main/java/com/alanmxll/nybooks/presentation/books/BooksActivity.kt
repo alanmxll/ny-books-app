@@ -2,6 +2,8 @@ package com.alanmxll.nybooks.presentation.books
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alanmxll.nybooks.R
@@ -16,18 +18,19 @@ class BooksActivity : AppCompatActivity() {
         toolbarMain.title = getString(R.string.books_title)
         setSupportActionBar(toolbarMain)
 
-        with(recyclerBooks) {
-            layoutManager = LinearLayoutManager(this@BooksActivity, RecyclerView.VERTICAL, false)
-            setHasFixedSize(true)
-            adapter = BooksAdapter(getBooks())
-        }
-    }
+        val viewModel: BooksViewModel = ViewModelProviders.of(this).get(BooksViewModel::class.java)
 
-    fun getBooks(): List<Book> {
-        return listOf(
-            Book("Lord Of The Rings", "J.R.R Tolkien"),
-            Book("Harry Potter", "J.K Rowling"),
-            Book("The Chronicles Of Narnia", "C.S Lewis"),
-        )
+        viewModel.booksLiveData.observe(this, Observer {
+            it?.let { books ->
+                with(recyclerBooks) {
+                    layoutManager =
+                        LinearLayoutManager(this@BooksActivity, RecyclerView.VERTICAL, false)
+                    setHasFixedSize(true)
+                    adapter = BooksAdapter(books)
+                }
+            }
+        })
+
+        viewModel.getBooks()
     }
 }
