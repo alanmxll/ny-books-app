@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.alanmxll.nybooks"
-        minSdkVersion 19
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -40,13 +40,14 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
     // Lifecycle
-    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.lifecycle:extensions:2.2.0"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
 
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.3")
+    implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")
 
     // Test
     testImplementation 'junit:junit:4.12'
