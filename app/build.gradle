@@ -24,6 +24,10 @@ android {
     }
 }
 
+ext {
+    retrofitVersion = '2.9.0'
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
@@ -31,10 +35,17 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
 
+    // RecyclerView
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
+    // Lifecycle
     implementation "android.arch.lifecycle:extensions:1.1.1"
 
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
+    // Test
     testImplementation 'junit:junit:4.12'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
