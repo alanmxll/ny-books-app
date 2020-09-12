@@ -1,5 +1,6 @@
 package com.alanmxll.nybooks.data.response
 
+import com.alanmxll.nybooks.data.model.Book
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
