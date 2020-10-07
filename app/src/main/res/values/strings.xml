@@ -3,6 +3,9 @@
 
     <!-- Books Activity -->
     <string name="books_title">Books</string>
+    <string name="books_error_401">Not Authorized</string>
+    <string name="books_error_400_generic">Unhandled Error</string>
+    <string name="books_error_500_generic">Catastrophic Error</string>
 
     <!-- Book Details Activity -->
     <string name="book_details_title">Book Details</string>
